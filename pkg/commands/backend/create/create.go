@@ -12,6 +12,7 @@ import (
 
 func New() commands.Command {
 	return commands.Command{
+		Children:    commands.NewChildren(), // defines `help`
 		Name:        "create",
 		Description: "Create a backend on a Fastly service version",
 		Exec:        run,
@@ -19,10 +20,6 @@ func New() commands.Command {
 }
 
 func run(args []string) {
-	fmt.Println("backend create:", args)
-}
-
-func Run(args []string) {
 	var (
 		helpflag bool
 
@@ -58,15 +55,12 @@ func Run(args []string) {
 	// TODO: handle required flags (e.g. error if no value provided).
 
 	if helpflag {
-		// usage := print.GenUsage(fs, args)
+		// usage := commands.GenUsage(fs, args)
 		// description := "Create a backend on a Fastly service version"
 		// title := "COMMAND FLAGS"
 		// print.Help(usage, description, title, cmdFlags)
 		os.Exit(1)
 	}
 
-	// TODO: most of this ^^ helpFlag code block should be moveable to a separate
-	// function that just takes the 'description' as an argument.
-
-	fmt.Println("backend create logic")
+	fmt.Println("backend create:", args)
 }

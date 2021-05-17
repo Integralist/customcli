@@ -1,11 +1,6 @@
 package print
 
 import (
-	"flag"
-	"fmt"
-	"strings"
-
-	"github.com/integralist/customcli/pkg/arguments"
 	"github.com/integralist/customcli/pkg/flags"
 )
 
@@ -51,23 +46,6 @@ import (
 
 // 	formatting.Template(flag.CommandLine.Output(), formatting.HelpTemplate, inputs...)
 // }
-
-// GenUsage generates example usage for print.Help().
-//
-// Example: fastly foo bar --abc=ABC --xyz=XYZ
-func GenUsage(fs *flag.FlagSet, args []string) string {
-	cmd := args[arguments.Command : len(args)-1]
-	usage := "fastly " + strings.Join(cmd, " ")
-
-	// TODO: skip 'optional' flags and instead display [<flags>]
-	fs.VisitAll(func(f *flag.Flag) {
-		if f.Name != "h" && f.Name != "help" && len(f.Name) > 1 {
-			usage = fmt.Sprintf("%s --%s=%s", usage, f.Name, strings.ToUpper(f.Name))
-		}
-	})
-
-	return usage
-}
 
 // ErrorContext prints additional contextual information to the bottom of help
 // output such as when an unexpected subcommand was passed.

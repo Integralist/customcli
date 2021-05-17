@@ -8,6 +8,7 @@ import (
 
 func New() commands.Command {
 	return commands.Command{
+		Children:    commands.NewChildren(), // defines `help`
 		Name:        "update",
 		Description: "Update a package on a Fastly Compute@Edge service version",
 		Exec:        run,

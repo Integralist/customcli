@@ -8,6 +8,7 @@ import (
 
 func New() commands.Command {
 	return commands.Command{
+		Children:    commands.NewChildren(), // defines `help`
 		Name:        "configure",
 		Description: "Configure the Fastly CLI",
 		Exec:        run,

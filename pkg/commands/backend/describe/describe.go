@@ -12,8 +12,10 @@ import (
 
 func New() commands.Command {
 	return commands.Command{
+		Children:    commands.NewChildren(), // defines `help`
 		Name:        "describe",
 		Description: "Show detailed information about a backend on a Fastly service version",
+		Exec:        run,
 	}
 }
 

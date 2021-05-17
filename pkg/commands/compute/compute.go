@@ -29,15 +29,17 @@ func New() commands.Command {
 		validate.New(),
 	}
 
-	b := commands.NewBase()
-	b.Add(cmds...)
+	c := commands.NewChildren()
+	c.Add(cmds...)
 
-	return commands.Command{
-		Base:        b,
+	cmd := commands.Command{
+		Children:    c,
 		Name:        "compute",
 		Description: "Manage Compute@Edge packages",
 		Exec:        run,
 	}
+
+	return cmd
 }
 
 func run(args []string) {

@@ -8,6 +8,7 @@ import (
 
 func New() commands.Command {
 	return commands.Command{
+		Children:    commands.NewChildren(), // defines `help`
 		Name:        "init",
 		Description: "Initialize a new Compute@Edge package locally",
 		Exec:        run,

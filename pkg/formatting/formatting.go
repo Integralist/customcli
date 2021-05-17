@@ -1,8 +1,7 @@
 package formatting
 
 import (
-	"fmt"
-	"io"
+	"strings"
 
 	"github.com/fatih/color"
 )
@@ -24,7 +23,7 @@ var HelpTemplate = `%s
 %s
 `
 
-// Template prints to an io.Writer an interpolated template.
-func Template(w io.Writer, template string, input ...interface{}) {
-	fmt.Fprintf(w, template, input...)
+// Pad adds spacing so command descriptions in help output align.
+func Pad(name string, longest int) string {
+	return strings.Repeat(" ", longest-len(name))
 }
