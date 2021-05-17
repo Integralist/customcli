@@ -1,4 +1,4 @@
-The code in this repo was based off the design of [fastly/cli](https://github.com/fastly/cli).
+The code in this repo was based off the design of [fastly/cli](https://github.com/fastly/cli) (as of Dec 2020).
 
 It's incomplete, but the motivation for its existence was to validate if a pure standard library implementation, instead of a third-party dependency, would be feasible (it _is_).
 

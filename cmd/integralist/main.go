@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/integralist/customcli/internal/pkg/app"
+	"github.com/integralist/customcli/pkg/app"
 )
 
 func main() {
